@@ -53,6 +53,7 @@ export class WACRuntime implements Runtime {
 
     public InitContext() {
         this.appContext.ngInit({ navigationService: this.navigationService })
+        this.appContext.rpc.rpcManager.rpcChannel.stop()
     }
 
     public DestroyContext() {
