@@ -154,6 +154,9 @@ if (!$config.security.users.owners.Contains($user)) {
     }
 
     if ($saveConfig) {
+        if (!$service) {
+            throw "Config file modification is not supported in dev mode, please manually modify appsettings.json to include $iisAdminOwners"
+        }
         Write-Verbose "Saving config..."
         if ($devMode) {
             throw "Cannot edit config file in dev mode, please add $user to ""$iisAdminOwners"" group manually"
