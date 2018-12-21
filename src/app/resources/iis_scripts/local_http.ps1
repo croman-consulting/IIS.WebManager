@@ -50,7 +50,7 @@ try {
     $responseMsg = $client.SendAsync($httpMsg).GetAwaiter().GetResult()
 
     if ($responseMsg.Content) {
-        $resContent = stringify $responseMsg.Content.ReadAsByteArrayAsync().Result
+        $resContent = stringify $responseMsg.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult()
     }
 
     $result = ConvertTo-Json @{
